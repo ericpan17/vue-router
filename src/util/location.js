@@ -14,6 +14,9 @@ export function normalizeLocation (
   router: ?VueRouter
 ): Location {
   let next: Location = typeof raw === 'string' ? { path: raw } : raw
+  if (!next) {
+    return {}
+  }
   // named target
   if (next._normalized) {
     return next
